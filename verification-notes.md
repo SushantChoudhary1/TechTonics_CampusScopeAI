@@ -1,0 +1,7 @@
+# Verification Notes
+
+The CampusScope entry screens were visually checked at the desktop viewport after the workflow changes. The landing, student sign-in, and admin sign-in screens render with the existing deep navy, mint/cyan signal accents, readable typography, and intact layout. The full student portal could not be opened from the screenshot-only verification path without creating a test account, so its authenticated light-theme pages were validated through the scoped `html.mode-light` CSS layer and source inspection of StudentShell, StudentHome, StudentReport, MyReports, and Profile.
+
+The implementation now includes a hover/focus-revealed admin translation affordance, durable notification queries and read-state mutations, active-versus-logged complaint procedures, feedback detail modal data, and evidence image modal styling. Typecheck, production build, and Vitest all passed during this iteration. The remaining manual validation recommendation is to sign in as a student and admin, submit a complaint with evidence, assign and resolve it, confirm the student notification center, submit feedback, and open the admin feedback and evidence dialogs.
+
+Additional router-level coverage now exercises the student feedback mutation and verifies that each administrator receives a notification containing the complaint number and feedback summary. It also exercises the admin translation procedure, recipient-scoped read mutation, and distinct active/logged complaint procedures with mocked persistence boundaries.
